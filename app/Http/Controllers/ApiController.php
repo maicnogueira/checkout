@@ -46,19 +46,27 @@ class ApiController extends Controller
         $pedido->cidade = $request->input('cidade');
         $pedido->estado = $request->input('estado');
 
-        if(empty($request->input('logradouro'))){
+        if(
+            empty($request->input('nome')) ||
+            empty($request->input('cpf')) ||
+            empty($request->input('cep')) ||
+            empty($request->input('logradouro')) ||
+            empty($request->input('numero')) ||
+            empty($request->input('complemento')) ||
+            empty($request->input('bairro')) ||
+            empty($request->input('cidade')) ||
+            empty($request->input('estado'))
+        ){
             return $this->responseFalse();
         }
 
-        if(empty($request->input('bairro'))){
+
+
+        if($request->input('cidade') !== $validar->{'localidade'}){
             return $this->responseFalse();
         }
 
-        if(empty($request->input('cidade')) || $request->input('cidade') !== $validar->{'localidade'}){
-            return $this->responseFalse();
-        }
-
-        if(empty($request->input('estado')) || $request->input('estado') !== $validar->{'uf'}){
+        if($request->input('estado') !== $validar->{'uf'}){
             return $this->responseFalse();
         }
 
