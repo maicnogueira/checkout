@@ -1,0 +1,35 @@
+$white: #ffffff;
+$petiko: #2c97d6;
+
+$theme-colors: (
+    "petiko": #2c97d6,
+);
+
+
+.background-azul {
+    background: #0082A0;
+    color: #ffffff;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 10rem;
+}
+
+@import "~bootstrap/scss/bootstrap";
+
+body{
+    overflow-x: hidden;
+}
+
+.row > *{
+    transition: all ease .5s;
+}
+
+.btn-petiko, .btn-petiko:hover, .btn-petiko[autofocus]{
+    color: $white;
+}
+
