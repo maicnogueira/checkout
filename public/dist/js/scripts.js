@@ -25,6 +25,7 @@ document.querySelector("#cadastro").addEventListener("submit", (event) => {
             validarCPF(formKey.value).then((result) => {
                 if (!result) {
                     document.querySelector(`#${formKey.id}`).classList.add("is-invalid");
+                    teste = false;
                 }
             });
         }
